@@ -51,3 +51,22 @@ function preview_image(event) {
   };
   reader.readAsDataURL(event.target.files[0]);
 }
+
+function getProduct() {
+  let products = JSON.parse(sessionStorage.getItem("product"));
+  console.log(products);
+
+  let quantity = "2";
+  let title = document.getElementById("product_title");
+  let description = document.getElementById("product_des");
+  let price = document.getElementById("product_price");
+  let total_price = document.getElementById("total_price");
+
+  title.innerHTML = products[0].title;
+  price.innerHTML = "₹ " + products[0].price;
+  description.innerHTML = products[0].description;
+  console.log(products[0].price * quantity);
+  total_price.innerHTML = "₹ " + products[0].price * quantity;
+
+  // document.getElementById("total_price").innerHTML =
+}
