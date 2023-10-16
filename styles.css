@@ -148,7 +148,9 @@
   border-radius: 10px;
   width: 60%;
 }
-
+input[type="file"] {
+  color: transparent;
+}
 ::placeholder {
   font-size: 14px;
   font-weight: 500;
@@ -196,6 +198,9 @@ input[type="file"]::file-selector-button:active {
 @media screen and (max-width: 991px) {
   .hidden-icon {
     display: none;
+  }
+  input[type="file"] {
+    margin-left: 180px;
   }
 
   .img_container {
