@@ -19,8 +19,10 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="products.css" />
+
+    <link rel="stylesheet" href="cart.css" />
   </head>
-  <body onload="getProduct()">
+  <body onload="getCartProduct()">
     <!-- Nav bar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container">
@@ -32,7 +34,7 @@
             <a class="nav-link" href="#"><i class="fa-regular fa-heart"></i></a>
           </li>
           <li class="nav-item cart">
-            <a class="nav-link" href="cart.html"
+            <a class="nav-link" href="#"
               ><i class="fa-solid fa-cart-shopping"></i>
               <span class="cart_no" id="cart_no">0</span>
             </a>
@@ -64,7 +66,7 @@
               ></a>
             </li>
             <li class="nav-item hidden-icon cart full_cart">
-              <a class="nav-link" href="cart.html"
+              <a class="nav-link" href="#"
                 ><i class="fa-solid fa-cart-shopping"></i>
                 <span class="cart_no" id="cart_no">0</span></a
               >
@@ -73,63 +75,71 @@
         </div>
       </div>
     </nav>
-    <section id="bg1">
-      <div class="products_container">
-        <h1 id="hidden_text">No Product, Please Add</h1>
-        <div class="productcard">
-          <div class="product_splitter">
-            <div class="image_container">
-              <img src="" alt="" class="productimg" id="product_img" />
+    <section class="back">
+      <h1 id="hidden_text_cart">Add Product To Cart</h1>
+      <div class="cart_container">
+        <div>
+          <img src="images/img_placeholder.png" alt="" id="img" />
+        </div>
+        <div class="text_container">
+          <h1 id="product_title">Title</h1>
+          <h3 id="product_price">₹45</h3>
+          <div>
+            <span class="ratings"
+              ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i
+            ></span>
+            <span>(23 Ratings)</span>
+          </div>
+          <div id="remove" onclick="removeItem()">
+            <i class="fa-solid fa-trash-can"></i>remove product
+          </div>
+          <div class="product_details">
+            <div>
+              <div>Quantity</div>
+              <div class="counter">
+                <span id="decrement" onclick="cartdecrement()">-</span>
+                <span id="quantity">1</span>
+                <span id="increment" onclick="cartincrement()">+</span>
+              </div>
             </div>
-            <div class="details">
-              <h1 id="product_title">Title</h1>
-              <h3 id="product_price">₹45</h3>
-              <div class="description_title">
-                <span class="description">Description</span> <span>Details</span
-                ><span>Comments</span>
-              </div>
-              <div id="product_des">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </div>
-              <div class="left_container">
-                <p class="left" id="left">1 Left</p>
-                <div style="display: inline-block; margin-bottom: 10px">
-                  <span class="ratings"
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                  ></span>
-                  <span>(23)</span>
-                </div>
-                <p class="left_error" id="error">
-                  <i class="fa-solid fa-circle-exclamation"></i>Max limit
-                  reached
-                </p>
-              </div>
-              <div class="product_details">
-                <div>
-                  <div>Quantity</div>
-                  <div class="counter">
-                    <span id="decrement" onclick="decrement()">-</span>
-                    <span id="quantity">1</span>
-                    <span id="increment" onclick="increment()">+</span>
-                  </div>
-                </div>
-                <div>
-                  <div>Total Price</div>
-                  <div class="counter"><span id="total_price">$840</span></div>
-                </div>
-              </div>
-
-              <div>
-                <button class="add_cart" onclick="addCart()">
-                  ADD TO CART
-                </button>
-              </div>
+            <div>
+              <div>Total Price</div>
+              <div class="counter"><span id="total_price">$840</span></div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="total_container">
+        <div class="promo_container">
+          <input type="text" id="promo" placeholder="Promo Code" />
+          <button>Apply</button>
+        </div>
+        <div class="value">
+          <div class="cart_total">
+            <span>Cart total</span>
+            <span id="cart_total">20000</span>
+          </div>
+          <div class="tax">
+            <span>tax</span>
+            <span id="tax">25</span>
+          </div>
+          <div class="delivery">
+            <span>Delivery</span>
+            <span id="del">25</span>
+          </div>
+          <div class="promo">
+            <span>Promo discount</span>
+            <span>-0.00</span>
+          </div>
+        </div>
+        <div class="sub_total">
+          <span>Subtotal</span>
+          <span id="grand_total">25000</span>
+        </div>
+        <div>
+          <button class="add_cart">PROCEED TO CHECKOUT</button>
         </div>
       </div>
     </section>
