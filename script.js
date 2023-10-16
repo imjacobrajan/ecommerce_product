@@ -43,6 +43,7 @@ function getData() {
   } else {
     alert("Please select an image to upload.");
   }
+  alert("Product added successfully");
 }
 
 function preview_image(event) {
@@ -144,6 +145,7 @@ function addCart() {
   let isCart = sessionStorage.getItem("cart");
   cart_no[0].innerHTML = isCart ? "1" : "0";
   cart_no[1].innerHTML = isCart ? "1" : "0";
+  alert("Product Added to Cart");
 }
 
 function getCartProduct() {
@@ -231,4 +233,9 @@ function cartdecrement() {
 function removeItem() {
   sessionStorage.removeItem("cart");
   getCartProduct();
+  alert("Cart removed successfully");
+}
+
+function checkOutCart() {
+  alert("Your Order of 1 Product has been Placed successfully");
 }
